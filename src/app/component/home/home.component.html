@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 style="text-align: center;">Welcome to Food Express</h2>
+</div>
+
+<br>
+<br>
+<div class="container">
+<div class="form-group  col-md-4 ">
+  <input type="text" class="form-control" placeholder="Search Restaurant" [(ngModel)]="searchedKeyword">
+</div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="card-group">
+    <div class="col-4" *ngFor="let restuarant of restuarants  | filter:searchedKeyword">
+      <div class="card">
+        <img class="card-img-top img-responsive" src="{{restuarant.imageUrl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{restuarant.name}}</h5>
+          <p class="card-text">{{restuarant.description}}</p>
+          <p class="card-text">Rating : {{restuarant.rating}}/5</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" (click)="exploreRestaurant(restuarant.rid)">Explore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

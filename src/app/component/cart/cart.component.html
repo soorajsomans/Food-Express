@@ -1,0 +1,47 @@
+<br>
+<br>
+
+<div class="container" *ngFor="let item of cartItems" >
+  <div class="card mb-3" style="max-width: 800px;">
+    <div class="row no-gutters">
+      <div class="col-lg-4" >
+        <img src="{{item.imageUrl}}" class="card-img" alt="...">
+      </div> 
+      
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{item.item_name}}</h5>
+          <p class="card-text">Rs.:{{item.item_price}}</p>
+          <p class="form-check-inline">Quantity </p>
+          <select class="form-select form-select-sm" (change)="getQuantity($event,item.id,item.item_qty)" aria-label=".form-select-sm" id="{{item.id}}">
+            <option value="1" >1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <br>
+          <button class="btn btn-danger" (click)="removeItem(item.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="cartItems.length !=0;else noItems">
+    <h1>
+      Total Price : {{totalPrice}}
+    </h1>
+    
+    <button class="btn btn-primary" (click)="buyNow()">Order Now</button>
+</div>
+<ng-template #noItems><h1 *ngIf="!isOrder"style="text-align: center;">Your cart is empty!<br> :(</h1></ng-template>
+
+<div class="alert alert-success" [class.visible]="isOrder"> 
+  
+ <h5 style="text-align: center;"> 
+  <img src="assets/images/logo.png"  alt="logo"/><br>
+  Order Placed Successfully<br>
+  Be patient We will deliver you the items shortly.
+</h5>
+<h6 style="text-align: center;color: red;">
+  Thank You
+</h6>
+</div>

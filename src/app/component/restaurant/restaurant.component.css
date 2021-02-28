@@ -1,0 +1,9 @@
+.alert  {
+    opacity: 0;
+    width: 100%;
+  }
+
+.visible {
+    opacity: 1;
+    transform: translateY(1.25rem);
+  }

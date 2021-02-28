@@ -1,0 +1,70 @@
+
+<br>
+<div class="container">
+  <div class="form-group  col-md-3  form-check-inline">
+    <input type="text" class="form-control" placeholder="Search a dish" [(ngModel)]="searchedKeyword">
+  </div>
+  <h6 class="form-check-inline ">Price</h6>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" (change)="sort($event)" id="inlineRadio1"
+      value="Low">
+    <label class="form-check-label" for="inlineRadio1">Low to High</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" (change)="sort($event)" id="inlineRadio2"
+      value="High">
+    <label class="form-check-label" for="inlineRadio2">High to Low</label>
+  </div>
+
+  <h6 class="form-check-inline ">Category</h6>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (change)="catfilter($event)" type="checkbox" id="inlineCheckbox1" value="veg">
+    <label class="form-check-label" for="inlineCheckbox1">Veg</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (change)="catfilter($event)" type="checkbox" id="inlineCheckbox2" value="non-veg">
+    <label class="form-check-label" for="inlineCheckbox2">Non-Veg</label>
+  </div>
+  <h6 class="form-check-inline ">Course</h6>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (change)="catfilter($event)" type="checkbox" id="inlineCheckbox3" value="starter">
+    <label class="form-check-label" for="inlineCheckbox3">Starter</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (change)="catfilter($event)" type="checkbox" id="inlineCheckbox4" value="main">
+    <label class="form-check-label" for="inlineCheckbox4">Main</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <button class="badge " (click)="clearFilter()" [disabled]="!isChecked"> reset</button>
+
+  </div>
+</div>
+<br>
+<br>
+
+
+<div class="container">
+  <div class="card-group">
+    <div class="col-4" *ngFor="let menuItem of menuItems  |filter:restaurantFilter | filter:searchedKeyword">
+      <div class="card">
+        <img class="card-img-top" src="{{menuItem.imageUrl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{menuItem.item_name}}</h5>
+          <p class="card-text">{{menuItem.item_description}}</p>
+          <p class="card-text">Ingredients : {{menuItem.item_ingredients}}</p>
+          <p class="card-text">Rating : {{menuItem.rating}}/5</p>
+          <p class="card-text">Price : {{menuItem.item_price}}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" (click)="addToCart(menuItem)">Add</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="alert alert-success" [class.visible]="isAdded"> 
+      Added to cart
+    </div>
+    <br>
+  </div>
+</div>

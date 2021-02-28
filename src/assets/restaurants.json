@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "rid":"LA01",
+        "name": "Le Arabia",
+        "description": "Best arabian and north indian foods",
+        "category": "non-veg",
+        "imageUrl": "/assets/images/le-arabia.jpg",
+        "rating": "4.5"
+    },
+    {
+        "id": 2,
+        "rid":"AS01",
+        "name": "Aaryaas",
+        "description": "Best vegitarian foods",
+        "category": "veg",
+        "imageUrl": "/assets/images/aryaas.jpg",
+        "rating": "4.8"
+    },
+    {
+        "id": 3,
+        "rid":"DP01",
+        "name": "Dhe Puttu",
+        "description": "world of puttu",
+        "category": "non-veg",
+        "imageUrl": "/assets/images/dhe_puttu.jpg",
+        "rating": "4.1"
+    }
+    
+]
